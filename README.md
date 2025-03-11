@@ -21,7 +21,7 @@ Utilized Docker and Docker Compose for service deployment, with Python package m
 ## Deployment Steps
 
 ```bash
-git clone https://xxxx.git
+git clone https://github.com/atoto9/baseballsavant_dashboard.git
 cd baseballsavant_dashboard
 docker-compose up -d --build
 ```
@@ -31,7 +31,6 @@ docker-compose up -d --build
 
 ## Dashboard Template
 ![Dashboard Template](https://github.com/atoto9/baseballsavant_dashboard/blob/main/img/dashboard.png)
-
 
 ## Technical Stack
 
