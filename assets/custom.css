@@ -1,0 +1,49 @@
+/* Main styles */
+body {
+    font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Page title */
+h1 {
+    color: #1e3a8a;
+    font-weight: 700;
+}
+
+/* Card styles */
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: none;
+}
+
+.card-header {
+    background-color: #1e3a8a;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Data table styles */
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner th {
+    background-color: #1e3a8a;
+    color: white;
+    font-weight: 600;
+}
+
+/* Chart styles */
+.js-plotly-plot .plotly .main-svg {
+    border-radius: 4px;
+}
+
+/* Dropdown styles */
+.Select-control {
+    border-radius: 4px;
+    border: 1px solid #d1d5db;
+}
+
+.Select-menu-outer {
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
