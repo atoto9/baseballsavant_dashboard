@@ -27,10 +27,11 @@ docker-compose up -d --build
 ```
 
 ## Database ER Model
-![Database ER Model](baseballsavant_dashboard/drawIO/database.drawio.png)
+![Database ER Model](https://github.com/atoto9/baseballsavant_dashboard/blob/main/img/database.drawio.png)
 
 ## Dashboard Template
-![Dashboard Template](baseballsavant_dashboard/drawIO/dashboard.png)
+![Dashboard Template](https://github.com/atoto9/baseballsavant_dashboard/blob/main/img/dashboard.png)
+
 
 ## Technical Stack
 
