@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  # Baseball Data Visualization Dash Application
+  baseball-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: baseball-dashboard
+    ports:
+      - "8050:8050"
+    environment:
+      - DATABASE_URL=postgresql://baseball_user:baseball_password@postgres:5432/baseball_db
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - postgres
+    networks:
+      - baseball-network
+    restart: unless-stopped
+    # Mount application code directory to container (development mode)
+    volumes:
+      - ./:/app
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:14
+    container_name: baseball-postgres
+    environment:
+      - POSTGRES_USER=baseball_user
+      - POSTGRES_PASSWORD=baseball_password
+      - POSTGRES_DB=baseball_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      # Initialization scripts for creating tables and loading initial data
+      - ./db/init:/docker-entrypoint-initdb.d
+    networks:
+      - baseball-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U baseball_user -d baseball_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # pgAdmin Management Tool (optional)
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: baseball-pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@example.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - baseball-network
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
+  pgadmin-data:
+
+networks:
+  baseball-network:
+    driver: bridge
