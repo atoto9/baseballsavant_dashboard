@@ -50,6 +50,41 @@ docker-compose up -d --build
 - Team-based filtering
 - Pitch count range selection
 
+## Development & Testing
+
+The project includes a comprehensive test suite for chart components, data processing utilities, and application functionality.
+
+### Running Tests
+
+```bash
+# Install development dependencies
+pip install -r requirements-dev.txt
+
+# Run all tests
+pytest
+
+# Run specific test file
+pytest tests/components/test_charts.py
+
+# Run with coverage report
+pytest --cov=.
+```
+
+### Code Quality Tools
+
+```bash
+# Format code with Black
+black .
+
+# Check code with Flake8
+flake8
+
+# Run type checking
+mypy .
+```
+
+CI pipeline is configured using GitHub Actions to automatically run tests, linting, and code quality checks.
+
 ## Future Enhancements
 
 - Implement comprehensive data scraping pipeline with Airflow
@@ -57,3 +92,4 @@ docker-compose up -d --build
 - Expand dashboard with additional visualization components
 - Implement user authentication for data access control
 - Add historical data comparison features
+- Increase test coverage and add integration tests
